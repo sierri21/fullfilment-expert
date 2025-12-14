@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "./reset";
+@import "./variables";
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background: $color-gray;
+}
+
+h1 {
+    font-size: var(--text-size-huge); // + 5.20833vw
+    line-height: 110%; // 5.72917vw
+    font-weight: 600;
+}
+
+h2 {
+    font-size: var(--text-size-large);
+    font-weight: 600;
+    line-height: 110%;
+}
+
+h3 {
+    font-size: var(--text-size-medium);
+    font-weight: 600;
+    line-height: 110%;
+}
+
+section {
+    min-height: 100vh;
+}
+
+.v-icon {
+    cursor: pointer;
+}
+
+.text {
+    &--gradient {
+        background: linear-gradient($color-yellow, $color-red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    &--white {
+        color: $color-white;
+    }
+}
+
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+.container--wide {
+    width: var(--container-wide-width);
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.gap {
+    &-x {
+        &--large {
+            column-gap: var(--spacing-large);
+        }
+    }
+}
+
+.m {
+    &b {
+        &--large {
+            margin-bottom: var(--spacing-large);
+        }
+        &--normal {
+            margin-bottom: var(--spacing-normal);
+        }
+        &--huge {
+            margin-bottom: var(--spacing-huge);
+        }
+    }
+    &t {
+        &--huge {
+            margin-top: var(--spacing-huge);
+        }
+    }
+}
+
+.text {
+    &--center {
+        text-align: center;
+    }
+}

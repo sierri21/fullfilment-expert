@@ -1,0 +1,43 @@
+$color-yellow: #FC7702;
+$color-red: #F50902;
+$color-black: #000;
+$color-dark: #263425;
+$color-white: #FFF;
+$color-gray: #F4F2F2;
+
+$radius-normal: 25px;
+$radius-small: 16px;
+
+* {
+    --container-width: 1420px;
+    --container-wide-width: 1650px;
+
+    --text-size-huge: 71px;
+    --text-size-large: 49px;
+    --text-size-medium: 40px;
+    --text-size-normal: 30px;
+    --text-size-small: 20px;
+
+    --spacing-huge: 150px;
+    --spacing-large: 41px;
+    --spacing-normal: 21px;
+    --spacing-small: 16px;
+}
+
+@media screen and (max-width: 1650px) {
+    * {
+        --container-width: 1020px;
+        --container-wide-width: 1220px;
+
+        --text-size-huge: 50px;
+        --text-size-large: 40px;
+        --text-size-medium: 30px;
+        --text-size-normal: 20px;
+        --text-size-small: 16px;
+
+        --spacing-huge: 150px;
+        --spacing-large: 41px;
+        --spacing-normal: 21px;
+        --spacing-small: 16px;
+    }
+}
