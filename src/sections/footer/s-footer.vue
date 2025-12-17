@@ -62,5 +62,26 @@ import IImo from "~/sections/footer/socials/i-imo.vue";
                 font-weight: 600;
             }
         }
+        @media screen and (max-width: 800px) {
+          .container {
+            grid-template-areas: "logo" "contact" "social";
+            gap: var(--spacing-small);
+          }
+          &__logo {
+            text-align: center;
+            img {
+              width: 50px;
+            }
+          }
+          &__contacts {
+            text-align: left;
+          }
+          &__socials {
+            justify-content: center;
+            svg {
+              width: 30px;
+            }
+          }
+        }
     }
 </style>

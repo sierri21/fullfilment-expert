@@ -41,3 +41,39 @@ $radius-small: 16px;
         --spacing-small: 16px;
     }
 }
+
+@media screen and (max-width: 1250px) {
+    * {
+        --container-width: 700px;
+        --container-wide-width: 800px;
+
+        --text-size-huge: 40px;
+        --text-size-large: 30px;
+        --text-size-medium: 20px;
+        --text-size-normal: 16px;
+        --text-size-small: 16px;
+
+        --spacing-huge: 60px;
+        --spacing-large: 31px;
+        --spacing-normal: 20px;
+        --spacing-small: 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    * {
+        --container-width: 350px;
+        --container-wide-width: 370px;
+
+        --text-size-huge: 30px;
+        --text-size-large: 22px;
+        --text-size-medium: 18px;
+        --text-size-normal: 16px;
+        --text-size-small: 14px;
+
+        --spacing-huge: 60px;
+        --spacing-large: 25px;
+        --spacing-normal: 20px;
+        --spacing-small: 16px;
+    }
+}

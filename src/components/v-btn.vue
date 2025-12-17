@@ -1,5 +1,6 @@
 <template lang="pug">
     button.v-btn.wait(
+        v-bind="$attrs"
         :class="classes"
     ) {{ text }}
 </template>

@@ -26,5 +26,13 @@ defineProps({
         font-size: var(--text-size-normal);
         font-weight: bold;
     }
+
+    @media screen and (max-width: 800px) {
+      column-gap: var(--spacing-small);
+      padding: var(--spacing-small);
+      img {
+        width: 40px
+      }
+    }
 }
 </style>

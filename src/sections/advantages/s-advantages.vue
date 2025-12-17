@@ -7,7 +7,7 @@
             br
             | на развитии своего бизнеса.
         .advantages__blocks.mt--huge
-            img( src="/images/warehouse2.png" )
+            img.advantages__image( src="/images/warehouse2.png" )
             .advantages__items
                 CAdvantage( v-for="item in advantages" :key="item.text" v-bind="item" )
 </template>
@@ -52,12 +52,27 @@ const advantages = [
     &__blocks {
         display: flex;
         justify-content: space-between;
-        column-gap: var(--spacing-huge)
+        column-gap: var(--spacing-huge);
+    }
+    &__image {
+      position: absolute;
+      z-index: -1;
+      @media screen and (max-width: 1600px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
     &__items {
+        margin-left: auto;
+        margin-right: 0;
+        max-width: 900px;
         display: flex;
         flex-direction: column;
-        row-gap: 30px
+        row-gap: 30px;
+        @media screen and (max-width: 1600px) {
+          margin-right: auto;
+          row-gap: 15px;
+        }
     }
 }
 </style>

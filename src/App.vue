@@ -3,8 +3,8 @@
     SFeatures
     SAdvantages
     SQuality
-    SCalculator
-    SForm
+    SCalculator( ref="calculator" )
+    SForm( :calculatorData="calculatorData" )
     SFooter
 </template>
 
@@ -16,6 +16,10 @@ import SQuality from "~/sections/quality/s-quality.vue";
 import SCalculator from "~/sections/calculator/s-calculator.vue";
 import SForm from "~/sections/form/s-form.vue"
 import SFooter from "~/sections/footer/s-footer.vue";
+import { ref, computed } from 'vue'
+
+const calculator = ref(null)
+const calculatorData = computed(() => calculator?.value?.filled)
 </script>
 
 <style scoped>

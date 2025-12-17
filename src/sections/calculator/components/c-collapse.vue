@@ -4,19 +4,19 @@
         hr
         .collapse__items
             label.collapse__item( v-for="item in localData" :key="item.title" )
-                div {{ item.title }}
+                div.item__title {{ item.title }}
                 template( v-if="typeof item.price === 'number'" )
-                    div {{ decimal(item.price) }} &#8381
+                    div.item__price {{ decimal(item.price) }} &#8381
                 template( v-else )
-                    div {{ item.price }}
-                div
+                    div.item__price {{ item.price }}
+                div.item__quantity
                     input(
                         v-if="typeof item.price === 'number'"
                         type="number"
                         :min="0"
                         v-model="item.quantity"
                     )
-                div
+                div.item__total
                     template(
                         v-if="typeof item.price === 'number' && item.quantity"
                     ) {{ decimal(item.price * item.quantity) }} &#8381
@@ -40,8 +40,11 @@ const totals = computed(() => localData.value
     .filter(({ quantity }) => quantity)
     .reduce((acc, { price, quantity }) => acc += (price * quantity), 0))
 
+const filledData = computed(() => localData.value.filter(({ quantity }) => quantity))
+
 defineExpose({
-    totals
+    totals,
+    filledData
 })
 
 </script>
@@ -67,8 +70,23 @@ defineExpose({
     &__item {
         display: grid;
         grid-template-columns: 3fr repeat(3, 250px);
+        grid-template-areas: 'title price quantity total';
         align-items: center;
         margin: 15px 0;
+        .item {
+          &__title {
+            grid-area: title;
+          }
+          &__price  {
+            grid-area: price;
+          }
+          &__quantity {
+            grid-area: quantity;
+          }
+          &__total {
+            grid-area: total;
+          }
+        }
         div {
             border-right: 3px solid $color-dark;
             font-size: var(--text-size-normal);
@@ -91,6 +109,30 @@ defineExpose({
                 text-align: center;
             }
         }
+    }
+    @media screen and (max-width: 800px) {
+      &__item {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-row-gap: var(--spacing-small);
+        grid-template-areas: 'title title title' 'price quantity total';
+        justify-content: space-between;
+        div {
+          padding: 0 var(--spacing-small);
+        }
+        .item {
+          &__title {
+            border-right: none;
+            text-align: center;
+            justify-content: center !important;
+          }
+          &__quantity {
+            input {
+              max-width: 100px;
+            }
+          }
+        }
+      }
     }
 
 }

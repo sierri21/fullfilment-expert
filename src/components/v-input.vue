@@ -29,5 +29,10 @@ const props = defineProps({
         background: $color-white;
         border-radius: $radius-small;
     }
+    @media screen and (max-width: 800px) {
+      input, textarea {
+        min-height: 50px;
+      }
+    }
 }
 </style>

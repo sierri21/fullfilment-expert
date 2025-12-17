@@ -55,7 +55,11 @@ const tab = ref(tabs.pricing.id)
 const itemRefs = useTemplateRef('items')
 
 const totals = computed(() => (itemRefs.value || []).reduce((acc, { totals }) => acc += totals, 0))
+const filled = computed(() => (itemRefs.value || []).reduce((acc, { filledData }) => [...acc, ...filledData], []))
 
+defineExpose({
+  filled
+})
 
 </script>
 
@@ -72,7 +76,7 @@ const totals = computed(() => (itemRefs.value || []).reduce((acc, { totals }) =>
         font-weight: 500;
         text-align: center;
         font-size: var(--text-size-medium);
-        line-height: 85px;
+        line-height: 120%;
         cursor: pointer;
         &.active {
             background: $color-dark;
@@ -111,6 +115,24 @@ const totals = computed(() => (itemRefs.value || []).reduce((acc, { totals }) =>
     &__warning {
         font-size: var(--text-size-small);
         font-weight: 600;
+    }
+    @media screen and (max-width: 800px){
+      &__tab {
+        font-size: var(--text-size-small);
+      }
+      &__tabs {
+        height: auto;
+      }
+      &__header {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        div:first-child {
+          grid-column-start: 1;
+          grid-column-end: 4;
+          border-right: none;
+          border-bottom: 3px solid $color-dark;
+        }
+      }
     }
 }
 </style>

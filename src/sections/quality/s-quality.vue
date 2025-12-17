@@ -38,6 +38,12 @@ const videoHeight = window.innerHeight + 'px'
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
+
+        @media screen and (max-width: 800px) {
+          h2 {
+            font-size: var(--text-size-normal);
+          }
+        }
     }
 
 </style>
