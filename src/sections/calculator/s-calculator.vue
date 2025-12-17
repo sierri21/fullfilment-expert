@@ -92,7 +92,7 @@ defineExpose({
     &__header {
         display: grid;
         margin: 10px 0;
-        grid-template-columns: 3fr repeat(3, 250px);
+        grid-template-columns: 3fr repeat(3, 1fr);
         color: $color-dark;
         font-size: var(--text-size-normal);
         text-align: center;

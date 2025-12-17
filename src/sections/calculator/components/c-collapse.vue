@@ -69,7 +69,7 @@ defineExpose({
     }
     &__item {
         display: grid;
-        grid-template-columns: 3fr repeat(3, 250px);
+        grid-template-columns: 3fr repeat(3, 1fr);
         grid-template-areas: 'title price quantity total';
         align-items: center;
         margin: 15px 0;
