@@ -16,19 +16,29 @@
             | Также есть опция рассмотреть
             | вариант с вашей формой договора.
         form.form__form( ref="form" @submit="sendForm")
-              VInput( input-type="input" label="имя" name="имя" )
-              VInput( input-type="input" label="контакт" name="контакт" )
+              VInput( input-type="input" label="имя" name="name" )
+              VInput(
+                input-type="input"
+                label="контакт"
+                name="contact"
+                required
+              )
               VInput(
                 input-type="textarea"
                 rows="10"
                 label="дополнительная инорфмация"
                 resizable
-                name="дополнительно"
+                name="additional"
               )
               .d-flex( style="align-items: center;" )
                   input( type="checkbox" id="addCalculator" name="attachCalculator" )
                   label( for="addCalculator" ) приложить расчет из калькулятора
-              VBtn( type="submit" v-bind="buttonBind" )
+              VBtn(
+                type="submit"
+                v-bind="buttonBind"
+                :disabled="buttonBind.disabled"
+                :class="{ disabled: buttonBind.disabled }"
+              )
 </template>
 
 <script setup>
@@ -101,7 +111,13 @@ async function sendForm (event) {
             flex-direction: column;
             row-gap: var(--spacing-normal);
             .v-btn {
-                width: 100%
+                width: 100%;
+                &.disabled {
+                  background: $color-gray !important;
+                  pointer-events: none;
+                  color: $color-dark;
+                  border-color: $color-dark !important;
+                }
             }
             label {
                 font-size: var(--text-size-normal);

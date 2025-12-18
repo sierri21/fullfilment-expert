@@ -1,6 +1,6 @@
 <template lang="pug">
     .v-input
-        component( :is="inputType" v-bind="$attrs" :placeholder="label")
+        component( :is="inputType" v-bind="$attrs" :placeholder="label" )
 </template>
 
 <script setup>
