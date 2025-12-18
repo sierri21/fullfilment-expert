@@ -16,7 +16,7 @@ footer.footer
             a.text--white( href="mailto:fulfilexcpert222@gmail.com" ) fulfilexcpert222@gmail.com
             a.text--white( href="tel:+79697199669" ) +7 (969) 719-96-69
             a.text--white( href="tel:+79657556556" ) +7 (965) 755-65-56
-            a.text--white( href="https://yandex.ru/maps/-/CLwlmJoa" ) Санкт – Петербург, Московское шоссе 162
+            a.text--white( href="https://yandex.ru/maps/-/CLwlmJoa" target="_blank" ) Санкт – Петербург, Московское шоссе 162
 </template>
 <script setup>
 import ITelegram from "./socials/i-telegram.vue";
