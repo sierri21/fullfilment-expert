@@ -57,7 +57,7 @@ import IImo from "~/sections/footer/socials/i-imo.vue";
                     text-decoration: underline;
                 }
             }
-            div:last-child {
+            a:last-child {
                 margin-top: var(--spacing-large);
                 font-size: var(--text-size-small);
                 font-weight: 600;
