@@ -19,7 +19,7 @@
                 div.item__total
                     template(
                         v-if="typeof item.price === 'number' && item.quantity"
-                    ) {{ decimal(item.price * item.quantity) }} &#8381
+                    ) {{ decimal(item.total) }} &#8381
 </template>
 
 <script setup>
@@ -34,11 +34,41 @@ const props = defineProps({
     }
 })
 
-const localData = ref(props.items.map(item => ({ ...item, quantity: null })))
+const localData = ref(props.items.map(item => {
+  if (Array.isArray(item.price)) {
+    return {
+      ...item,
+      quantity: null,
+      get price () {
+        const priceArr = [...item.price]
+        return !this.quantity
+            ? priceArr[0]
+            : priceArr[this.quantity - 1]
+              ? priceArr[this.quantity - 1] / this.quantity
+              : priceArr.at(-1) / priceArr.length
+      },
+      get total () {
+        const priceArr = [...item.price]
+        return !(this.price && this.quantity)
+            ? null
+            : priceArr[this.quantity - 1]
+              ? priceArr[this.quantity - 1]
+              : this.price * this.quantity
+      }
+    }
+  }
+  return {
+    ...item,
+    quantity: null,
+    get total () {
+      return (this.price && this.quantity) ? this.price * this.quantity : null
+    }
+  }
+}))
 
 const totals = computed(() => localData.value
     .filter(({ quantity }) => quantity)
-    .reduce((acc, { price, quantity }) => acc += (price * quantity), 0))
+    .reduce((acc, { total }) => acc += total, 0))
 
 const filledData = computed(() => localData.value.filter(({ quantity }) => quantity))
 
