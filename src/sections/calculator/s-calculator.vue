@@ -39,7 +39,7 @@ import { ref, useTemplateRef, computed } from 'vue'
 const tabs = {
     pricing: {
         id: 'pricing',
-        title: 'рассчет стоимости'
+        title: 'расчет стоимости'
     },
     delivery: {
         id: 'delivery',
