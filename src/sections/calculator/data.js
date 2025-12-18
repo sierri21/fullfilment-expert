@@ -1151,11 +1151,11 @@ export const department = [
             },
             {
                 title: '1 паллета до 450 кг.',
-                price: 8500
+                price: 9000
             },
             {
                 title: 'От 3 паллет до 1350 кг.',
-                price: 8200
+                price: 8300
             }
         ]
     },
